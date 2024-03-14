@@ -74,7 +74,10 @@ int [] array = {10, 25, 30, 40, 100};
 	}
 	@Test
 	void binarySearchIntTest() {
-		//TODO
+		assertEquals(-1, Arrays.binarySearch(array, 5));
+		assertEquals(-6, Arrays.binarySearch(array, 105));
+		assertEquals(-3, Arrays.binarySearch(array, 26));
+		assertEquals(1, Arrays.binarySearch(array, 25));
 	}
 
 }

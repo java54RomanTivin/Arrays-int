@@ -1,26 +1,34 @@
 package telran.util;
 
+import java.util.Arrays;
+
 public class ArraysInt {
 	public static int[] addNumber(int[] array, int number) {
-		
-		//TODO
-		//apply method copyOf of class Arrays
-		return null;
+		int[] result = Arrays.copyOf(array, array.length + 1);
+		result[array.length] = number;
+		return result;
 	}
+
 	public static int[] insertNumber(int[] array, int index, int number) {
-		//TODO
-		//apply method arraycopy of class System
-		return null;
+
+		int[] result = new int[array.length + 1];
+		result[index] = number;
+		System.arraycopy(array, 0, result, 0, index);
+		System.arraycopy(array, index, result, index + 1, array.length - index);
+		return result;
 	}
+
 	public static int[] removeNumber(int[] array, int index) {
-		//TODO
-		//apply method arraycopy of class System
-		return null;
+		int[] result = new int[array.length - 1];
+		System.arraycopy(array, 0, result, 0, index);
+		System.arraycopy(array, index + 1, result, index, array.length - index - 1);
+		return result;
 	}
+
 	public static int[] insertSorted(int[] sortedArray, int number) {
-		//TODO
-		//insert number into sorted array with keeping the sorted order
-		//apply method binarySearch of the class Arrays
-		return null;
+		int index = Arrays.binarySearch(sortedArray, number);
+		if (index < 0)
+			index = -(index + 1);
+		return insertNumber(sortedArray, index, number);
 	}
 }
